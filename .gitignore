@@ -1,0 +1,207 @@
+# Build results
+bin/
+obj/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options
+.vs/
+.vscode/
+*.VC.db
+*.opendb
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.iml
+
+# Visual Studio Code extensions
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Rider and ReSharper
+.idea/
+.idea/
+*.sln.iml
+*.DotSettings.user
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+.nupkg/
+packages/
+package-lock.json
+
+# Entity Framework
+*.db
+*.db-shm
+*.db-wal
+Migrations/
+[Mm]igrations/
+
+# Application Insights
+ApplicationInsights.config
+.ApplicationInsights/
+
+# OS files
+Thumbs.db
+.DS_Store
+*.swp
+*.swo
+*~
+.directory
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.trx
+.coverage
+coverage/
+OpenCover/
+
+# Distribution folder
+dist/
+publish/
+PublishProfiles/
+
+# npm and node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Bower
+bower_components/
+
+# MSBuild
+.msbuild.log
+
+# Rider
+.idea/
+*.sln.iml
+_ReSharper*/
+
+# Local Environment files
+.env
+.env.local
+.env.*.local
+
+# Azure
+.azure/
+local.settings.json
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# Fody
+FodyWeavers.xsd
+
+# C# and other compiled languages
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.pdb
+*.ilk
+
+# Common IDE files
+.editorconfig
+.idea
+.vscode
+*.code-workspace
+
+# Project Rider files
+.idea_modules/
+cmake-build-debug/
+cmake-build-release/
+
+# macOS
+.AppleDouble
+.LSOverride
+._*
+.apdisk
+
+# Linux
+.Trash-*
+
+# Visual Studio for Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+.AppleDouble
+.LSOverride
+._*
+.DS_Store
+
+# Build folders
+artifacts/
+PrecompiledWeb/
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.[Cc]ache
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.SAP
+*.e2e
+TestResults/
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ASP.NET Core specific
+wwwroot/lib/
+wwwroot/css/
+wwwroot/js/
+Properties/launchSettings.json
+
+# User secrets
+**/secrets.json
+secrets.json
+
+# ASP.NET Core
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# Visual Studio temp files
+.vs/
+.DS_Store

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="WoodyCornerApp.BLL/WoodyCornerApp.BLL.csproj" />
+  <Project Path="WoodyCornerApp.DAL/WoodyCornerApp.DAL.csproj" />
+  <Project Path="WoodyCornerApp.PL/WoodyCornerApp.PL.csproj" />
+</Solution>
