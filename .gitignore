@@ -202,6 +202,14 @@ secrets.json
 *.runtimeconfig.json
 *.runtimeconfig.dev.json
 
+# appsettings files (will be added manually after initial push)
+WoodyCornerApp.PL/appsettings.json
+WoodyCornerApp.PL/appsettings.Development.json
+
 # Visual Studio temp files
 .vs/
 .DS_Store
+/WoodyCornerApp.PL/appsettings.Development.json
+/WoodyCornerApp.PL/appsettings.json
+/WoodyCornerApp.PL/appsettings.Development.json
+/WoodyCornerApp.PL/appsettings.json
