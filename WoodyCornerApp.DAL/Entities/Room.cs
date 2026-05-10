@@ -6,11 +6,8 @@ using System.Text;
 
 namespace WoodyCornerApp.DAL.Entities
 {
-    public class Room
+    public class Room : BaseEntity<int>
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(100, MinimumLength = 2)]
         [Display(Name = "Room Type")]

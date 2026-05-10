@@ -4,10 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace WoodyCornerApp.DAL.Entities
+namespace WoodyCornerApp.BLL.DTOs
 {
-    public class Product : BaseEntity<int>
+    public class GetProductDto
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(200, MinimumLength = 2)]
         [Display(Name = "Product Name")]
@@ -35,11 +38,5 @@ namespace WoodyCornerApp.DAL.Entities
         [Required]
         [Display(Name = "Room")]
         public int RoomId { get; set; }
-
-        [ForeignKey("RoomId")]
-        public Room Room { get; set; } = null!;
-
-        public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
-        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
     }
 }

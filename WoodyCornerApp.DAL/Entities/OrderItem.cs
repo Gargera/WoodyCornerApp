@@ -6,11 +6,8 @@ using System.Text;
 
 namespace WoodyCornerApp.DAL.Entities
 {
-    public class OrderItem
+    public class OrderItem : BaseEntity<int>
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         public int OrderId { get; set; }
 
