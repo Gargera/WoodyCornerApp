@@ -4,13 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace WoodyCornerApp.BLL.DTOs
+namespace WoodyCornerApp.BLL.DTOs.ProductDtos
 {
-    public class UpdateProductDto
+    public class CreateProductDto
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(200, MinimumLength = 2)]
         [Display(Name = "Product Name")]

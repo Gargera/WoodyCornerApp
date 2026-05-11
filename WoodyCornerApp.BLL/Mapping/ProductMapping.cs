@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Text;
-using WoodyCornerApp.BLL.DTOs;
+using WoodyCornerApp.BLL.DTOs.ProductDtos;
+using WoodyCornerApp.BLL.DTOs.CartItemDtos;
+using WoodyCornerApp.BLL.DTOs.OrderItemDtos;
 using WoodyCornerApp.DAL.Entities;
 
 namespace WoodyCornerApp.BLL.Mapping
@@ -73,7 +75,10 @@ namespace WoodyCornerApp.BLL.Mapping
                 Price = product.Price,
                 StockQuantity = product.StockQuantity,
                 ImagePath = product.ImagePath,
-                RoomId = product.RoomId
+                RoomId = product.RoomId,
+                Room = product.Room,
+                CartItems = product.CartItems.Select(c => c.EntityToGetCartItemDto()).ToList(),
+                OrderItems = product.OrderItems.Select(r => r.EntityToGetOrderItemDto()).ToList()
             };
         }
 

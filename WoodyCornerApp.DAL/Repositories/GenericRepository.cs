@@ -17,9 +17,9 @@ namespace WoodyCornerApp.DAL.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllEntitiesAsync()
+        public IQueryable<TEntity> GetAllEntities()
         {
-            return await _dbContext.Set<TEntity>().ToListAsync();
+            return _dbContext.Set<TEntity>();
         }
 
         public async Task<TEntity?> GetEntityByIdAsync(TKey id)

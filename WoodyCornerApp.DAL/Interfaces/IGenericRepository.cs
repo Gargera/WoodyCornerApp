@@ -9,7 +9,7 @@ namespace WoodyCornerApp.DAL.Interfaces
 {
     public interface IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
     {
-        public Task<IEnumerable<TEntity>> GetAllEntitiesAsync();
+        public IQueryable<TEntity> GetAllEntities();
 
         public Task<TEntity?> GetEntityByIdAsync(TKey id);
 
