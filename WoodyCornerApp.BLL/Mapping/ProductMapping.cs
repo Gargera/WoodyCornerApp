@@ -39,6 +39,7 @@ namespace WoodyCornerApp.BLL.Mapping
         {
             return new UpdateProductDto
             {
+                Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
@@ -52,6 +53,7 @@ namespace WoodyCornerApp.BLL.Mapping
         {
             return new Product
             {
+                Id = updateProductDto.Id,
                 Name = updateProductDto.Name,
                 Description = updateProductDto.Description,
                 Price = updateProductDto.Price,

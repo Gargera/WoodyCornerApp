@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
-using WoodyCornerApp.DAL.Interfaces;
 using WoodyCornerApp.DAL.Entities;
+using WoodyCornerApp.DAL.Interfaces;
 
 namespace WoodyCornerApp.DAL.Repositories
 {
@@ -40,6 +41,11 @@ namespace WoodyCornerApp.DAL.Repositories
         {
             var entity = await GetEntityByIdAsync(id);
             _dbContext.Set<TEntity>().Remove(entity);
+        }
+
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _dbContext.Set<TEntity>().AnyAsync(predicate);
         }
     }
 }

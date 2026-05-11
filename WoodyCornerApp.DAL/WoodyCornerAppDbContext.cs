@@ -95,7 +95,6 @@ namespace WoodyCornerApp.DAL
 
                 entity.ToTable(t => t.HasCheckConstraint("CK_Product_Name", "LEN([Name]) >= 2"));
                 entity.ToTable(t => t.HasCheckConstraint("CK_Product_Description", "LEN([Description]) >= 10"));
-                entity.ToTable(t => t.HasCheckConstraint("CK_Product_Price", "[Price] >= 0.01 AND [Price] <= 999999.99"));
                 entity.ToTable(t => t.HasCheckConstraint("CK_Product_StockQuantity", "[StockQuantity] >= 0 AND [StockQuantity] <= 1000000"));
             });
 

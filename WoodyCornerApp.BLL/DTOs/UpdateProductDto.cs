@@ -8,6 +8,9 @@ namespace WoodyCornerApp.BLL.DTOs
 {
     public class UpdateProductDto
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(200, MinimumLength = 2)]
         [Display(Name = "Product Name")]

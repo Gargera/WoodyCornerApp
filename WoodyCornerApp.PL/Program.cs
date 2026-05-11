@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Diagnostics;
 using WoodyCornerApp.DAL;
 using WoodyCornerApp.DAL.Entities;
+using WoodyCornerApp.DAL.Interfaces;
+using WoodyCornerApp.DAL.Repositories;
 
 namespace WoodyCornerApp.PL
 {
@@ -21,6 +24,8 @@ namespace WoodyCornerApp.PL
                      //.UseLazyLoadingProxies()
             );
 
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

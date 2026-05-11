@@ -25,6 +25,11 @@ namespace WoodyCornerApp.DAL.Repositories
             CartItems = new GenericRepository<CartItem, int>(dbContext);
         }
 
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
+
         public async Task<int> SaveAsync()
         {
             return await _dbContext.SaveChangesAsync();

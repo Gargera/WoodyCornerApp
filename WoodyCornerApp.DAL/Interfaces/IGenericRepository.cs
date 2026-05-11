@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 using WoodyCornerApp.DAL.Entities;
 
@@ -17,5 +18,7 @@ namespace WoodyCornerApp.DAL.Interfaces
         public void UpdateEntity(TEntity entity);
 
         public Task DeleteEntityAsync(TKey id);
+
+        public Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
     }
 }
