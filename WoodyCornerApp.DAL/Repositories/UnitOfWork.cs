@@ -9,20 +9,20 @@ namespace WoodyCornerApp.DAL.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly WoodyCornerAppDbContext _dbContext;
-        public IGenericRepository<Room, int> Rooms { get; }
-        public IGenericRepository<Product, int> Products { get; }
-        public IGenericRepository<Order, int> Orders { get; }
-        public IGenericRepository<OrderItem, int> OrderItems { get; }
-        public IGenericRepository<CartItem, int> CartItems { get; }
+        public IGenericRepository<Room> Rooms { get; }
+        public IGenericRepository<Product> Products { get; }
+        public IGenericRepository<Order> Orders { get; }
+        public IGenericRepository<OrderItem> OrderItems { get; }
+        public IGenericRepository<CartItem> CartItems { get; }
 
         public UnitOfWork(WoodyCornerAppDbContext dbContext)
         {
             _dbContext = dbContext;
-            Rooms = new GenericRepository<Room, int>(dbContext);
-            Products = new GenericRepository<Product, int>(dbContext);
-            Orders = new GenericRepository<Order, int>(dbContext);
-            OrderItems = new GenericRepository<OrderItem, int>(dbContext);
-            CartItems = new GenericRepository<CartItem, int>(dbContext);
+            Rooms = new GenericRepository<Room>(dbContext);
+            Products = new GenericRepository<Product>(dbContext);
+            Orders = new GenericRepository<Order>(dbContext);
+            OrderItems = new GenericRepository<OrderItem>(dbContext);
+            CartItems = new GenericRepository<CartItem>(dbContext);
         }
 
         public void Dispose()

@@ -65,7 +65,8 @@ namespace WoodyCornerApp.BLL.Mapping
                 Id = room.Id,
                 Name = room.Name,
                 Description = room.Description,
-                ImagePath = room.ImagePath
+                ImagePath = room.ImagePath,
+                Products = room.Products.Select(p => p.EntityToGetProductDto()).ToList()
             };
         }
     }

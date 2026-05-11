@@ -23,8 +23,11 @@ namespace WoodyCornerApp.BLL.Services
 
         public async Task<ServiceResult<GetRoomDto>> GetRoomByIdAsync(int id)
         {
-            var room = await _unitOfWork.Rooms.GetEntityByIdAsync(id);
-            ServiceResult<GetRoomDto> result = new ServiceResult<GetRoomDto>();
+            var room = await _unitOfWork.Rooms.GetEntityById(id)
+                                              .Include(r => r.Products)
+                                              .FirstOrDefaultAsync();
+
+            var result = new ServiceResult<GetRoomDto>();
 
             if (room != null)
             {
@@ -86,18 +89,20 @@ namespace WoodyCornerApp.BLL.Services
 
         public async Task<IEnumerable<GetRoomDto>> GetAllRoomsAsync()
         {
-            return await _unitOfWork.Rooms.GetAllEntities()
-                                               .Include(r => r.Products.Select(p => p.EntityToGetProductDto()))
-                                               .Select(r => r.EntityToGetRoomDto())
+            var rooms = await _unitOfWork.Rooms.GetAllEntities()
+                                               .Include(r => r.Products)
+                                               .Select(r => r)
                                                .ToListAsync();
+
+            return rooms.Select(r => r.EntityToGetRoomDto());
         }
 
         public async Task<ServiceResult<UpdateRoomDto>> UpdateRoom(UpdateRoomDto updateRoomDto)
         {
-            var room = await _unitOfWork.Rooms.GetEntityByIdAsync(updateRoomDto.Id);
-            ServiceResult<UpdateRoomDto> result = new ServiceResult<UpdateRoomDto>();
+            var GetRoom = await GetRoomByIdAsync(updateRoomDto.Id);
+            var result = new ServiceResult<UpdateRoomDto>();
 
-            if (room == null)
+            if (!GetRoom.Success)
             {
                 result.Success = false;
                 result.Message = "Room NotFound!";

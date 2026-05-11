@@ -22,8 +22,13 @@ namespace WoodyCornerApp.BLL.Services
 
         public async Task<ServiceResult<GetProductDto>> GetProductByIdAsync(int id)
         {
-            var product = await _unitOfWork.Products.GetEntityByIdAsync(id);
-            ServiceResult<GetProductDto> result = new ServiceResult<GetProductDto>();
+            var product = await _unitOfWork.Products.GetEntityById(id)
+                                                    .Include(p => p.CartItems)
+                                                    .Include(p => p.OrderItems)
+                                                    .Include(p => p.Room)
+                                                    .FirstOrDefaultAsync();
+
+            var result = new ServiceResult<GetProductDto>();
 
             if (product != null)
             {
@@ -85,20 +90,21 @@ namespace WoodyCornerApp.BLL.Services
 
         public async Task<IEnumerable<GetProductDto>> GetAllProductsAsync()
         {
-            return await _unitOfWork.Products.GetAllEntities()
-                                               .Include(p => p.CartItems.Select(c => c.EntityToGetCartItemDto()))
-                                               .Include(p => p.OrderItems.Select(o => o.EntityToGetOrderItemDto()))
-                                               .Include(p => p.Room.EntityToGetRoomDto())
-                                               .Select(p => p.EntityToGetProductDto())
+            var products = await _unitOfWork.Products.GetAllEntities()
+                                               .Include(p => p.CartItems)
+                                               .Include(p => p.OrderItems)
+                                               .Include(p => p.Room)
                                                .ToListAsync();
+
+            return products.Select(p => p.EntityToGetProductDto());
         }
 
         public async Task<ServiceResult<UpdateProductDto>> UpdateProduct(UpdateProductDto updateProductDto)
         {
-            var product = await _unitOfWork.Products.GetEntityByIdAsync(updateProductDto.Id);
-            ServiceResult<UpdateProductDto> result = new ServiceResult<UpdateProductDto>();
+            var GetProduct = await GetProductByIdAsync(updateProductDto.Id);
+            var result = new ServiceResult<UpdateProductDto>();
 
-            if (product == null)
+            if (!GetProduct.Success)
             {
                 result.Success = false;
                 result.Message = "Product NotFound!";

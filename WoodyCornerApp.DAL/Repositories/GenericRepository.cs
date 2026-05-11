@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Text;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.DAL.Interfaces;
 
 namespace WoodyCornerApp.DAL.Repositories
 {
-    public class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey> where TEntity : BaseEntity<TKey>
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity<int>
     {
         private readonly WoodyCornerAppDbContext _dbContext;
 
@@ -22,9 +23,9 @@ namespace WoodyCornerApp.DAL.Repositories
             return _dbContext.Set<TEntity>();
         }
 
-        public async Task<TEntity?> GetEntityByIdAsync(TKey id)
+        public IQueryable<TEntity> GetEntityById(int id)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(id);
+            return _dbContext.Set<TEntity>().Where(e => e.Id == id);
         }
 
         public async Task AddEntityAsync(TEntity entity)
@@ -37,10 +38,10 @@ namespace WoodyCornerApp.DAL.Repositories
             _dbContext.Set<TEntity>().Update(entity);
         }
 
-        public async Task DeleteEntityAsync(TKey id)
+        public async Task DeleteEntityAsync(int id)
         {
-            var entity = await GetEntityByIdAsync(id);
-            _dbContext.Set<TEntity>().Remove(entity);
+            var entity = await _dbContext.Set<TEntity>().FindAsync(id);
+            _dbContext.Set<TEntity>().Remove(entity!);
         }
 
         public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)

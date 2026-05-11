@@ -7,11 +7,11 @@ namespace WoodyCornerApp.DAL.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        public IGenericRepository<Room, int> Rooms { get; }
-        public IGenericRepository<Product, int> Products { get; }
-        public IGenericRepository<Order, int> Orders { get; }
-        public IGenericRepository<OrderItem, int> OrderItems { get; }
-        public IGenericRepository<CartItem, int> CartItems { get; }
+        public IGenericRepository<Room> Rooms { get; }
+        public IGenericRepository<Product> Products { get; }
+        public IGenericRepository<Order> Orders { get; }
+        public IGenericRepository<OrderItem> OrderItems { get; }
+        public IGenericRepository<CartItem> CartItems { get; }
         public Task<int> SaveAsync();
     }
 }
