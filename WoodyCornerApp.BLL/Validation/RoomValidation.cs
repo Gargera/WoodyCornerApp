@@ -7,9 +7,9 @@ namespace WoodyCornerApp.BLL.Validation
 {
     public static class RoomValidation
     {
-        public static ValidResult Valid(this Room room)
+        public static ValidationResult Valid(this Room room)
         {
-            var result = new ValidResult();
+            var result = new ValidationResult();
             result.valid = false;
 
             if (room == null) result.message = "Room not found";

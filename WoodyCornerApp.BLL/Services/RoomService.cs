@@ -71,8 +71,8 @@ namespace WoodyCornerApp.BLL.Services
             }
             else
             {
-                var validResult = createRoomDto.EntityToRoom().Valid();
-                if (validResult.valid)
+                var validationResult = createRoomDto.EntityToRoom().Valid();
+                if (validationResult.valid)
                 {
                     await _unitOfWork.Rooms.AddEntityAsync(createRoomDto.EntityToRoom());
                     await _unitOfWork.SaveChangesAsync();
@@ -82,7 +82,7 @@ namespace WoodyCornerApp.BLL.Services
                 else
                 {
                     result.Success = false;
-                    result.Message = validResult.message;
+                    result.Message = validationResult.message;
                 }
             }
 
@@ -120,8 +120,8 @@ namespace WoodyCornerApp.BLL.Services
                 }
                 else
                 {
-                    var validResult = updateRoomDto.EntityToRoom().Valid();
-                    if (validResult.valid)
+                    var validationResult = updateRoomDto.EntityToRoom().Valid();
+                    if (validationResult.valid)
                     {
                         _unitOfWork.Rooms.UpdateEntity(updateRoomDto.EntityToRoom());
                         await _unitOfWork.SaveChangesAsync();
@@ -131,7 +131,7 @@ namespace WoodyCornerApp.BLL.Services
                     else
                     {
                         result.Success = false;
-                        result.Message = validResult.message;
+                        result.Message = validationResult.message;
                     }
                 }
             }

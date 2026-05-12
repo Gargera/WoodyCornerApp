@@ -72,8 +72,8 @@ namespace WoodyCornerApp.BLL.Services
             }
             else
             {
-                var validResult = createProductDto.EntityToProduct().Valid();
-                if (validResult.valid)
+                var validationResult = createProductDto.EntityToProduct().Valid();
+                if (validationResult.valid)
                 {
                     await _unitOfWork.Products.AddEntityAsync(createProductDto.EntityToProduct());
                     await _unitOfWork.SaveChangesAsync();
@@ -83,7 +83,7 @@ namespace WoodyCornerApp.BLL.Services
                 else
                 {
                     result.Success = false;
-                    result.Message = validResult.message;
+                    result.Message = validationResult.message;
                 }
             }
 
@@ -123,8 +123,8 @@ namespace WoodyCornerApp.BLL.Services
                 }
                 else
                 {
-                    var validResult = updateProductDto.EntityToProduct().Valid();
-                    if (validResult.valid)
+                    var validationResult = updateProductDto.EntityToProduct().Valid();
+                    if (validationResult.valid)
                     {
                         _unitOfWork.Products.UpdateEntity(updateProductDto.EntityToProduct());
                         await _unitOfWork.SaveChangesAsync();
@@ -134,7 +134,7 @@ namespace WoodyCornerApp.BLL.Services
                     else
                     {
                         result.Success = false;
-                        result.Message = validResult.message;
+                        result.Message = validationResult.message;
                     }
                 }
             }

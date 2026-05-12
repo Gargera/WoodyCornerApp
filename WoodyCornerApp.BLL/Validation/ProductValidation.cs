@@ -7,9 +7,9 @@ namespace WoodyCornerApp.BLL.Validation
 {
     public static class ProductValidation
     {
-        public static ValidResult Valid(this Product product)
+        public static ValidationResult Valid(this Product product)
         {
-            var result = new ValidResult();
+            var result = new ValidationResult();
             result.valid = false;
 
             if (product == null) result.message = "product not found";
