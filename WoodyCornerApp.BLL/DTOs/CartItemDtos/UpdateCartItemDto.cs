@@ -19,7 +19,7 @@ namespace WoodyCornerApp.BLL.DTOs.CartItemDtos
         public string UserId { get; set; }
 
         [Required]
-        [Range(1, 100)]
+        [Range(1, 1000)]
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }
     }

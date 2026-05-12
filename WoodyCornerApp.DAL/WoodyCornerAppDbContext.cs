@@ -214,8 +214,6 @@ namespace WoodyCornerApp.DAL
                     .HasPrecision(10, 2);
 
                 entity.ToTable(t => t.HasCheckConstraint("CK_OrderItem_Quantity", "[Quantity] >= 1 AND [Quantity] <= 1000"));
-
-                entity.ToTable(t => t.HasCheckConstraint("CK_OrderItem_PriceAtPurchase", "[PriceAtPurchase] >= 0.01"));
             });
 
             base.OnModelCreating(builder);

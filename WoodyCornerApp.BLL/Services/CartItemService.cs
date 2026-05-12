@@ -70,10 +70,10 @@ namespace WoodyCornerApp.BLL.Services
             }
             else
             {
-                if (createCartItemDto.Quantity < 1 || createCartItemDto.Quantity > 100)
+                if (createCartItemDto.Quantity < 1 || createCartItemDto.Quantity > 1000)
                 {
                     result.Success = false;
-                    result.Message = "Quantity must be between 1 and 100";
+                    result.Message = "Quantity must be between 1 and 1000";
                 }
                 else
                 {
@@ -110,7 +110,7 @@ namespace WoodyCornerApp.BLL.Services
             }
             else
             {
-                if (updateCartItemDto.Quantity >= 1 && updateCartItemDto.Quantity <= 100)
+                if (updateCartItemDto.Quantity >= 1 && updateCartItemDto.Quantity <= 1000)
                 {
                     _unitOfWork.CartItems.UpdateEntity(updateCartItemDto.EntityToCartItem());
                     await _unitOfWork.SaveChangesAsync();
@@ -129,7 +129,7 @@ namespace WoodyCornerApp.BLL.Services
                     else
                     {
                         result.Success = false;
-                        result.Message = "Quantity must be between 1 and 100";
+                        result.Message = "Quantity must be between 1 and 1000";
                     }
                 }
             }

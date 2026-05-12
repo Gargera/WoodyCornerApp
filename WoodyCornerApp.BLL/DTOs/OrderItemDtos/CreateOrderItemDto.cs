@@ -7,11 +7,8 @@ using WoodyCornerApp.DAL.Entities;
 
 namespace WoodyCornerApp.BLL.DTOs.OrderItemDtos
 {
-    public class GetOrderItemDto
+    public class CreateOrderItemDto
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         public int OrderId { get; set; }
 
@@ -27,11 +24,5 @@ namespace WoodyCornerApp.BLL.DTOs.OrderItemDtos
         [Column(TypeName = "decimal(10,2)")]
         [Display(Name = "Price At Purchase")]
         public decimal PriceAtPurchase { get; set; }
-
-        [ForeignKey("OrderId")]
-        public Order Order { get; set; } = null!;
-
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; } = null!;
     }
 }

@@ -8,18 +8,28 @@ namespace WoodyCornerApp.BLL.Mapping
 {
     public static class OrderItemMapping
     {
-        public static OrderItem EntityToOrderItem(this GetOrderItemDto getOrderItemDto)
-        {
-            return new OrderItem
-            {
-
-            };
-        }
         public static GetOrderItemDto EntityToGetOrderItemDto(this OrderItem orderItem)
         {
             return new GetOrderItemDto
             {
+                Id = orderItem.Id,
+                OrderId = orderItem.OrderId,
+                ProductId = orderItem.ProductId,
+                Quantity = orderItem.Quantity,
+                PriceAtPurchase = orderItem.PriceAtPurchase,
+                Order = orderItem.Order,
+                Product = orderItem.Product
+            };
+        }
 
+        public static OrderItem EntityToOrderItem(this CreateOrderItemDto createOrderItemDto)
+        {
+            return new OrderItem
+            {
+                OrderId = createOrderItemDto.OrderId,
+                ProductId = createOrderItemDto.ProductId,
+                Quantity = createOrderItemDto.Quantity,
+                PriceAtPurchase = createOrderItemDto.PriceAtPurchase
             };
         }
     }
