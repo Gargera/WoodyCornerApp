@@ -11,7 +11,7 @@ namespace WoodyCornerApp.BLL.DTOs.CartItemDtos
         public int ProductId { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [Required]
         [Range(1, 1000)]

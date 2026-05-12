@@ -14,7 +14,7 @@ namespace WoodyCornerApp.BLL.DTOs.OrderDtos
         public int Id { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [Required]
         [Display(Name = "Order Date")]
@@ -33,16 +33,16 @@ namespace WoodyCornerApp.BLL.DTOs.OrderDtos
         [Required]
         [StringLength(300, MinimumLength = 10)]
         [Display(Name = "Shipping Address")]
-        public string ShippingAddress { get; set; }
+        public string ShippingAddress { get; set; } = null!;
 
         [Required]
         [StringLength(100, MinimumLength = 3)]
         [Display(Name = "Shipping City")]
-        public string ShippingCity { get; set; }
+        public string ShippingCity { get; set; } = null!;
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; } = null!;
 
-        public ICollection<GetOrderItemDto> OrderItems { get; set; }
+        public ICollection<GetOrderItemDto> OrderItems { get; set; } = new List<GetOrderItemDto>();
     }
 }

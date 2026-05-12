@@ -12,7 +12,7 @@ namespace WoodyCornerApp.DAL.Entities
         public int ProductId { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [Required]
         [Range(1, 1000)]
@@ -20,9 +20,9 @@ namespace WoodyCornerApp.DAL.Entities
         public int Quantity { get; set; }
 
         [ForeignKey("ProductId")]
-        public Product Product { get; set; } 
+        public Product Product { get; set; } = null!;
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; } = null!;
     }
 }

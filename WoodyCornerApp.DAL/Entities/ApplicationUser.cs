@@ -17,12 +17,12 @@ namespace WoodyCornerApp.DAL.Entities
         [Required]
         [StringLength(300, MinimumLength = 10)]
         [Display(Name = "Address")]
-        public string Address { get; set; }
+        public string Address { get; set; } = null!;
 
         [Required]
         [StringLength(100, MinimumLength = 3)]
         [Display(Name = "City")]
-        public string City { get; set; }
+        public string City { get; set; } = null!;
 
         public ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
         public ICollection<Order> Orders { get; set; } = new List<Order>();

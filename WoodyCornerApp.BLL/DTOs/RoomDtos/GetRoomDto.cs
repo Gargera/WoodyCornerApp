@@ -21,11 +21,11 @@ namespace WoodyCornerApp.BLL.DTOs.RoomDtos
         [Required]
         [StringLength(50, MinimumLength = 10)]
         [Display(Name = "Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [Required]
         [Display(Name = "Image")]
-        public string ImagePath { get; set; }
+        public string ImagePath { get; set; } = null!;
 
         public ICollection<GetProductDto> Products { get; set; } = new List<GetProductDto>();
     }

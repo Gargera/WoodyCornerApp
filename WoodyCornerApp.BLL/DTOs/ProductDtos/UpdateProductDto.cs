@@ -33,7 +33,7 @@ namespace WoodyCornerApp.BLL.DTOs.ProductDtos
 
         [Required]
         [Display(Name = "Image")]
-        public string ImagePath { get; set; }
+        public string ImagePath { get; set; } = null!;
 
         [Required]
         [Display(Name = "Room")]

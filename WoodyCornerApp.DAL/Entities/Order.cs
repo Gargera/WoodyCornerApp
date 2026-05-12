@@ -9,7 +9,7 @@ namespace WoodyCornerApp.DAL.Entities
     public class Order : BaseEntity<int>
     {
         [Required]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         [Required]
         [Display(Name = "Order Date")]
