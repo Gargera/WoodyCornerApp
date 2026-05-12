@@ -12,6 +12,6 @@ namespace WoodyCornerApp.DAL.Interfaces
         public IGenericRepository<Order> Orders { get; }
         public IGenericRepository<OrderItem> OrderItems { get; }
         public IGenericRepository<CartItem> CartItems { get; }
-        public Task<int> SaveAsync();
+        public Task<int> SaveChangesAsync();
     }
 }

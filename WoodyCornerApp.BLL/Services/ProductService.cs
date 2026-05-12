@@ -52,6 +52,7 @@ namespace WoodyCornerApp.BLL.Services
             if (result.Success)
             {
                 await _unitOfWork.Products.DeleteEntityAsync(id);
+                await _unitOfWork.SaveChangesAsync();
                 result.Message = "Product Deleted Successfully";
             }
 
@@ -74,6 +75,7 @@ namespace WoodyCornerApp.BLL.Services
                 if (validResult.valid)
                 {
                     await _unitOfWork.Products.AddEntityAsync(createProductDto.EntityToProduct());
+                    await _unitOfWork.SaveChangesAsync();
                     result.Success = true;
                     result.Message = "Product Created Successfully";
                 }
@@ -124,6 +126,7 @@ namespace WoodyCornerApp.BLL.Services
                     if (validResult.valid)
                     {
                         _unitOfWork.Products.UpdateEntity(updateProductDto.EntityToProduct());
+                        await _unitOfWork.SaveChangesAsync();
                         result.Message = "Product Updated Successfully";
                         result.Success = true;
                     }

@@ -51,6 +51,7 @@ namespace WoodyCornerApp.BLL.Services
             if (result.Success)
             {
                 await _unitOfWork.Rooms.DeleteEntityAsync(id);
+                await _unitOfWork.SaveChangesAsync();
                 result.Message = "Room Deleted Successfully";
             }
 
@@ -73,6 +74,7 @@ namespace WoodyCornerApp.BLL.Services
                 if (validResult.valid)
                 {
                     await _unitOfWork.Rooms.AddEntityAsync(createRoomDto.EntityToRoom());
+                    await _unitOfWork.SaveChangesAsync();
                     result.Success = true;
                     result.Message = "Room Created Successfully";
                 }
@@ -121,6 +123,7 @@ namespace WoodyCornerApp.BLL.Services
                     if (validResult.valid)
                     {
                         _unitOfWork.Rooms.UpdateEntity(updateRoomDto.EntityToRoom());
+                        await _unitOfWork.SaveChangesAsync();
                         result.Message = "Room Updated Successfully";
                         result.Success = true;
                     }

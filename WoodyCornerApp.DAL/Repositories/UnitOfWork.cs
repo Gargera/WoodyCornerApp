@@ -30,7 +30,7 @@ namespace WoodyCornerApp.DAL.Repositories
             _dbContext.Dispose();
         }
 
-        public async Task<int> SaveAsync()
+        public async Task<int> SaveChangesAsync()
         {
             return await _dbContext.SaveChangesAsync();
         }

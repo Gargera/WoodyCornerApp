@@ -51,6 +51,7 @@ namespace WoodyCornerApp.BLL.Services
             if (result.Success)
             {
                 await _unitOfWork.CartItems.DeleteEntityAsync(id);
+                await _unitOfWork.SaveChangesAsync();
                 result.Message = "CartItem Deleted Successfully";
             }
 
@@ -77,6 +78,7 @@ namespace WoodyCornerApp.BLL.Services
                 else
                 {
                     await _unitOfWork.CartItems.AddEntityAsync(createCartItemDto.EntityToCartItem());
+                    await _unitOfWork.SaveChangesAsync();
                     result.Success = true;
                     result.Message = "CartItem Created Successfully";
                 }
@@ -111,6 +113,7 @@ namespace WoodyCornerApp.BLL.Services
                 if (updateCartItemDto.Quantity >= 1 && updateCartItemDto.Quantity <= 100)
                 {
                     _unitOfWork.CartItems.UpdateEntity(updateCartItemDto.EntityToCartItem());
+                    await _unitOfWork.SaveChangesAsync();
                     result.Message = "CartItem Updated Successfully";
                     result.Success = true;
                 }
@@ -119,6 +122,7 @@ namespace WoodyCornerApp.BLL.Services
                     if(updateCartItemDto.Quantity == 0)
                     {
                         await _unitOfWork.CartItems.DeleteEntityAsync(updateCartItemDto.Id);
+                        await _unitOfWork.SaveChangesAsync();
                         result.Message = "CartItem Deleted Successfully";
                         result.Success = true;
                     }
