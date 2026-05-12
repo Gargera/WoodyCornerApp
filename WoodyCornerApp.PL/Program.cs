@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Diagnostics;
+using WoodyCornerApp.BLL.Interfaces;
+using WoodyCornerApp.BLL.Services;
 using WoodyCornerApp.DAL;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.DAL.Interfaces;
@@ -25,7 +27,12 @@ namespace WoodyCornerApp.PL
             );
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+            builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+            builder.Services.AddScoped<IProductService,  ProductService>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<ICartItemService, CartItemService>();
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WoodyCornerApp.DAL.Entities
 {
-    public abstract class BaseEntity<TKey>
+    public abstract class BaseEntity<TKey> where TKey : struct
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public TKey Id {  get; set; }
