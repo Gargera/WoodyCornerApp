@@ -4,11 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using WoodyCornerApp.DAL.Entities;
-using WoodyCornerApp.BLL.DTOs.ProductDtos;
 
 namespace WoodyCornerApp.BLL.DTOs.CartItemDtos
 {
-    public class GetCartItemDto
+    public class UpdateCartItemDto
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -23,11 +22,5 @@ namespace WoodyCornerApp.BLL.DTOs.CartItemDtos
         [Range(1, 100)]
         [Display(Name = "Quantity")]
         public int Quantity { get; set; }
-
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-
-        [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
     }
 }

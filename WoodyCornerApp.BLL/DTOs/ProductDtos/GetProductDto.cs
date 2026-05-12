@@ -6,6 +6,7 @@ using System.Text;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.BLL.DTOs.CartItemDtos;
 using WoodyCornerApp.BLL.DTOs.OrderItemDtos;
+using WoodyCornerApp.BLL.DTOs.RoomDtos;
 
 namespace WoodyCornerApp.BLL.DTOs.ProductDtos
 {
@@ -43,7 +44,7 @@ namespace WoodyCornerApp.BLL.DTOs.ProductDtos
         public int RoomId { get; set; }
 
         [ForeignKey("RoomId")]
-        public Room Room { get; set; } = null!;
+        public GetRoomDto Room { get; set; } = null!;
 
         public ICollection<GetCartItemDto> CartItems { get; set; } = new List<GetCartItemDto>();
         public ICollection<GetOrderItemDto> OrderItems { get; set; } = new List<GetOrderItemDto>();

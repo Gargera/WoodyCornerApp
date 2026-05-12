@@ -11,19 +11,6 @@ namespace WoodyCornerApp.BLL.Mapping
 {
     public static class ProductMapping
     {
-        public static CreateProductDto EntityToCreateProductDto(this Product product)
-        {
-            return new CreateProductDto
-            {
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-                StockQuantity = product.StockQuantity,
-                ImagePath = product.ImagePath,
-                RoomId = product.RoomId
-            };
-        }
-
         public static Product EntityToProduct(this CreateProductDto createProductDto)
         {
             return new Product
@@ -34,20 +21,6 @@ namespace WoodyCornerApp.BLL.Mapping
                 StockQuantity = createProductDto.StockQuantity,
                 ImagePath = createProductDto.ImagePath,
                 RoomId = createProductDto.RoomId
-            };
-        }
-
-        public static UpdateProductDto EntityToUpdateProductDto(this Product product)
-        {
-            return new UpdateProductDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-                StockQuantity = product.StockQuantity,
-                ImagePath = product.ImagePath,
-                RoomId = product.RoomId
             };
         }
 
@@ -76,23 +49,9 @@ namespace WoodyCornerApp.BLL.Mapping
                 StockQuantity = product.StockQuantity,
                 ImagePath = product.ImagePath,
                 RoomId = product.RoomId,
-                Room = product.Room,
+                Room = product.Room.EntityToGetRoomDto(),
                 CartItems = product.CartItems.Select(c => c.EntityToGetCartItemDto()).ToList(),
                 OrderItems = product.OrderItems.Select(r => r.EntityToGetOrderItemDto()).ToList()
-            };
-        }
-
-        public static Product EntityToProduct(this GetProductDto getProductDto)
-        {
-            return new Product
-            {
-                Id = getProductDto.Id,
-                Name = getProductDto.Name,
-                Description = getProductDto.Description,
-                Price = getProductDto.Price,
-                StockQuantity = getProductDto.StockQuantity,
-                ImagePath = getProductDto.ImagePath,
-                RoomId = getProductDto.RoomId
             };
         }
     }

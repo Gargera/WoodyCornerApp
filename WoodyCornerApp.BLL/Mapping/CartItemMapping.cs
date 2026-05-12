@@ -8,18 +8,37 @@ namespace WoodyCornerApp.BLL.Mapping
 {
     public static class CartItemMapping
     {
-        public static CartItem EntityToCartItem(this GetCartItemDto getCartItemDto)
-        {
-            return new CartItem
-            {
-
-            };
-        }
         public static GetCartItemDto EntityToGetCartItemDto(this CartItem cartItem)
         {
             return new GetCartItemDto
             {
+                Id = cartItem.Id,
+                ProductId = cartItem.ProductId,
+                Quantity = cartItem.Quantity,
+                UserId = cartItem.UserId,
+                Product = cartItem.Product,
+                User = cartItem.User
+            };
+        }
 
+        public static CartItem EntityToCartItem(this UpdateCartItemDto updateCartItemDto)
+        {
+            return new CartItem
+            {
+                Id = updateCartItemDto.Id,
+                ProductId = updateCartItemDto.ProductId,
+                Quantity = updateCartItemDto.Quantity,
+                UserId = updateCartItemDto.UserId
+            };
+        }
+
+        public static CartItem EntityToCartItem(this CreateCartItemDto createCartItemDto)
+        {
+            return new CartItem
+            {
+                ProductId = createCartItemDto.ProductId,
+                Quantity = createCartItemDto.Quantity,
+                UserId = createCartItemDto.UserId
             };
         }
     }

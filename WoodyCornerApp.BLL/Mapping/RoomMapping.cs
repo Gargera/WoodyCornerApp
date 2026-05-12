@@ -18,16 +18,6 @@ namespace WoodyCornerApp.BLL.Mapping
                 ImagePath = updateRoomDto.ImagePath,
             };
         }
-        public static UpdateRoomDto EntityToUpdateRoomDto (this Room room)
-        {
-            return new UpdateRoomDto
-            {
-                Id = room.Id,
-                Name = room.Name,
-                Description = room.Description,
-                ImagePath= room.ImagePath
-            };
-        }
 
         public static Room EntityToRoom(this CreateRoomDto createRoomDto)
         {
@@ -38,26 +28,7 @@ namespace WoodyCornerApp.BLL.Mapping
                 ImagePath = createRoomDto.ImagePath
             };
         }
-        public static CreateRoomDto EntityToCreateRoomDto(this Room room)
-        {
-            return new CreateRoomDto
-            {
-                Name = room.Name,
-                Description = room.Description,
-                ImagePath = room.ImagePath
-            };
-        }
 
-        public static Room EntityToRoom(this GetRoomDto getRoomDto)
-        {
-            return new Room
-            {
-                Id = getRoomDto.Id,
-                Name = getRoomDto.Name,
-                Description = getRoomDto.Description,
-                ImagePath = getRoomDto.ImagePath
-            };
-        }
         public static GetRoomDto EntityToGetRoomDto(this Room room)
         {
             return new GetRoomDto

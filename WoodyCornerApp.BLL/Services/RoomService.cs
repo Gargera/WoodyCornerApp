@@ -59,7 +59,7 @@ namespace WoodyCornerApp.BLL.Services
 
         public async Task<ServiceResult<CreateRoomDto>> CreateRoomAsync(CreateRoomDto createRoomDto)
         {
-            var findAny = await _unitOfWork.Rooms.AnyAsync(p => p.ImagePath == createRoomDto.ImagePath);
+            var findAny = await _unitOfWork.Rooms.AnyAsync(r => r.ImagePath == createRoomDto.ImagePath);
 
             var result = new ServiceResult<CreateRoomDto>();
             if (findAny)
@@ -91,7 +91,6 @@ namespace WoodyCornerApp.BLL.Services
         {
             var rooms = await _unitOfWork.Rooms.GetAllEntities()
                                                .Include(r => r.Products)
-                                               .Select(r => r)
                                                .ToListAsync();
 
             return rooms.Select(r => r.EntityToGetRoomDto());
@@ -109,7 +108,7 @@ namespace WoodyCornerApp.BLL.Services
             }
             else
             {
-                var findAny = await _unitOfWork.Rooms.AnyAsync(p => p.ImagePath == updateRoomDto.ImagePath);
+                var findAny = await _unitOfWork.Rooms.AnyAsync(r => r.ImagePath == updateRoomDto.ImagePath);
 
                 if (findAny)
                 {
