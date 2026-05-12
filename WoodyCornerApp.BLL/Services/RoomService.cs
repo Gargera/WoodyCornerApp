@@ -9,10 +9,11 @@ using WoodyCornerApp.BLL.Mapping;
 using WoodyCornerApp.BLL.Validation;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.DAL.Interfaces;
+using WoodyCornerApp.BLL.Interfaces;
 
 namespace WoodyCornerApp.BLL.Services
 {
-    public class RoomService
+    public class RoomService : IRoomService
     {
         private readonly IUnitOfWork _unitOfWork;
 

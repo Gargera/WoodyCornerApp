@@ -8,11 +8,12 @@ using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.BLL.Common;
 using WoodyCornerApp.BLL.Validation;
 using WoodyCornerApp.BLL.DTOs.ProductDtos;
+using WoodyCornerApp.BLL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace WoodyCornerApp.BLL.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly IUnitOfWork _unitOfWork;
         public ProductService(IUnitOfWork unitOfWork)

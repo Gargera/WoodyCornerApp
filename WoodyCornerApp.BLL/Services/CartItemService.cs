@@ -5,13 +5,14 @@ using System.Text;
 using WoodyCornerApp.BLL.Common;
 using WoodyCornerApp.BLL.DTOs.CartItemDtos;
 using WoodyCornerApp.BLL.DTOs.RoomDtos;
+using WoodyCornerApp.BLL.Interfaces;
 using WoodyCornerApp.BLL.Mapping;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.DAL.Interfaces;
 
 namespace WoodyCornerApp.BLL.Services
 {
-    public class CartItemService
+    public class CartItemService : ICartItemService
     {
         private readonly IUnitOfWork _unitOfWork;
 

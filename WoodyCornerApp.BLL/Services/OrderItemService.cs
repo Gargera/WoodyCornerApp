@@ -6,11 +6,12 @@ using WoodyCornerApp.BLL.Common;
 using WoodyCornerApp.BLL.DTOs.OrderItemDtos;
 using WoodyCornerApp.DAL.Entities;
 using WoodyCornerApp.DAL.Interfaces;
+using WoodyCornerApp.BLL.Interfaces;
 using WoodyCornerApp.BLL.Mapping;
 
 namespace WoodyCornerApp.BLL.Services
 {
-    public class OrderItemService
+    public class OrderItemService : IOrderItemService
     {
         private readonly IUnitOfWork _unitOfWork;
 
